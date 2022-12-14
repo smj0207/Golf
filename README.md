@@ -6,7 +6,8 @@
 
 ## chkVal에서 유효성 검사를 한다.
 
-![image](https://user-images.githubusercontent.com/97486300/207482879-fe49a8f7-1475-4602-94aa-f93f04471913.png)
+![image](https://user-images.githubusercontent.com/97486300/207495876-14a7cc20-a36b-44c8-b3f9-f1fb26014633.png)
+
 
 ```javaScript
 function chkVal() {
