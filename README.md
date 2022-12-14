@@ -6,9 +6,6 @@
 
 ## chkVal에서 유효성 검사를 한다.
 
-![image](https://user-images.githubusercontent.com/97486300/207495876-14a7cc20-a36b-44c8-b3f9-f1fb26014633.png)
-
-
 ```javaScript
 function chkVal() {
 		var cls = document.classData;
@@ -37,6 +34,8 @@ function chkVal() {
 	}
 ```
 
+![image](https://user-images.githubusercontent.com/97486300/207495876-14a7cc20-a36b-44c8-b3f9-f1fb26014633.png)
+
 값이 입력되지 않았을 경우 메세지가 뜨면서 포커스를 빈칸으로 이동시켜준다
 
 ## 회원명
@@ -47,7 +46,13 @@ function chkVal() {
 
 회원명을 바꾸게 되었을때 회원번호 또한 회원명에 맞게 자동으로 바뀌게 된다
 
-![image](https://user-images.githubusercontent.com/97486300/207483895-c6e46b08-72a9-428a-b004-25368b3d2ac1.png)
+```
+function vDisplay(code) {
+		document.classData.c_no.value = code; 	
+		document.classData.class_name.value = "none"; 
+		document.classData.tuition.value = ""; 	
+	}
+```
 
 value값을 받아 회원번호에 넣어준 후 강의명과 수강료를 초기화 시켜준다
 
@@ -55,7 +60,40 @@ value값을 받아 회원번호에 넣어준 후 강의명과 수강료를 초�
 
 회원번호가 20000을 넘는 경우는 수강료를 50% 할인해준다는 메세지를 출력해준다
 
-![image](https://user-images.githubusercontent.com/97486300/207490657-f31d1532-112f-49f5-93ff-dcc92ef46da8.png)
+```
+function calTuition(tcode) {
+		var mbr = document.classData.c_no.value;
+		if(!mbr) {
+			alert("회원명을 먼저 선택하세요.");
+			document.classData.class_name[0].selected = true;
+			document.classData.c_name.focus();
+		} else {
+			
+			var salePrice = 0;
+			switch (tcode) {
+				case "100":
+					salePrice = 100000;
+					break;
+				case "200":
+					salePrice = 200000;
+					break;
+				case "300":
+					salePrice = 300000;
+					break;
+				case "400":
+					salePrice = 400000;
+					break;
+			}
+			
+			if(mbr.charAt(0)=='2') {
+				alert("수강료가 50% 할인 되었습니다.");
+				salePrice = salePrice / 2;
+			}
+			
+			document.classData.tuition.value = salePrice;
+		}
+	}
+```
 
 스위치 문으로 입력받은 값의 맞는 값을 출력해주며 <br>
 if문으로 회원번호의 첫번째가 2인 경우 수강료를 2로 나누어 50% 할인해주는 문구를 출력하게 해준다
