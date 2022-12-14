@@ -4,11 +4,37 @@
 
 ![image](https://user-images.githubusercontent.com/97486300/207482536-5abd6805-64e7-4029-a0f9-73c4e3595af3.png)
 
-## 유효성 검사가 걸려있다
+## chkVal에서 유효성 검사를 한다.
 
 ![image](https://user-images.githubusercontent.com/97486300/207482879-fe49a8f7-1475-4602-94aa-f93f04471913.png)
 
-![image](https://user-images.githubusercontent.com/97486300/207482969-6a95f66b-adff-48bf-8888-9cb2cd4874ce.png)
+```javaScript
+function chkVal() {
+		var cls = document.classData;
+		
+		if(!cls.resist_month.value) {
+			alert("수강월이 입력되지 않았습니다!");
+			cls.resist_month.focus();
+			return false;
+		}
+		if(cls.c_name.value=="none") {
+			alert("회원명이 선택되지 않았습니다!");
+			cls.c_name.focus();
+			return false;
+		}
+		if(!cls.class_area.value) {
+			alert("강의장소가 입력되지 않았습니다!");
+			cls.class_area.focus();
+			return false;
+		}
+		if(cls.class_name.value=="none") {
+			alert("강의명이 선택되지 않았습니다!");
+			cls.class_name.focus();
+			return false;
+		}
+		return true;
+	}
+```
 
 값이 입력되지 않았을 경우 메세지가 뜨면서 포커스를 빈칸으로 이동시켜준다
 
