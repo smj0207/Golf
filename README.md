@@ -4,7 +4,7 @@
 
 ![image](https://user-images.githubusercontent.com/97486300/207482536-5abd6805-64e7-4029-a0f9-73c4e3595af3.png)
 
-## chkVal에서 유효성 검사를 한다.
+## chkVal함수
 
 ```javaScript
 function chkVal() {
@@ -14,25 +14,10 @@ function chkVal() {
 			alert("수강월이 입력되지 않았습니다!");
 			cls.resist_month.focus();
 			return false;
-		}
-		if(cls.c_name.value=="none") {
-			alert("회원명이 선택되지 않았습니다!");
-			cls.c_name.focus();
-			return false;
-		}
-		if(!cls.class_area.value) {
-			alert("강의장소가 입력되지 않았습니다!");
-			cls.class_area.focus();
-			return false;
-		}
-		if(cls.class_name.value=="none") {
-			alert("강의명이 선택되지 않았습니다!");
-			cls.class_name.focus();
-			return false;
-		}
-		return true;
 	}
 ```
+
+chkVal에서 유효성검사를 해주며 
 
 ![image](https://user-images.githubusercontent.com/97486300/207495876-14a7cc20-a36b-44c8-b3f9-f1fb26014633.png)
 
@@ -54,7 +39,8 @@ function vDisplay(code) {
 	}
 ```
 
-value값을 받아 회원번호에 넣어준 후 강의명과 수강료를 초기화 시켜준다
+vDisplay에서 매개변수값을 받아와 value값으로 변경해줘 회원번호에 넣어준 후 <br>
+강의명은 none으로 수강료는 빈 문자열로 설정시켜준다.
 
 ![image](https://user-images.githubusercontent.com/97486300/207486765-101cde0d-8002-4218-b25f-90939c1cefc3.png)
 
@@ -95,6 +81,6 @@ function calTuition(tcode) {
 	}
 ```
 
-스위치 문으로 입력받은 값의 맞는 값을 출력해주며 <br>
-if문으로 회원번호의 첫번째가 2인 경우 수강료를 2로 나누어 50% 할인해주는 문구를 출력하게 해준다
+회원코드를 불러온 값의 맞는 값을 출력해주며 <br>
+if문으로 회원번호의 첫번째가 2인 경우 수강료를 2로 나누어 50% 할인해주는 문구를 출력하게 해준다.
 
