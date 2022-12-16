@@ -160,4 +160,7 @@ if문으로 회원번호의 첫번째가 2인 경우 수강료를 2로 나누어
 
 ## 강사매출페이지
 
-또한 회원정보페이지와 유사하게 데이터를 가공해서 테이블에서 출력 
+또한 회원정보페이지와 거의 유사하지만 sum함수로 강사 매출을 더하여 출력해준다 
+```
+sb.append("select t.teacher_code, t.class_name, t.teacher_name, '￦'||to_char(sum(c.tuition), '999,999') tuition");
+```
