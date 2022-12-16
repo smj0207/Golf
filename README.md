@@ -84,4 +84,80 @@ function calTuition(tcode) {
 회원코드를 불러온 값의 맞는 값을 출력해주며 <br>
 if문으로 회원번호의 첫번째가 2인 경우 수강료를 2로 나누어 50% 할인해주는 문구를 출력하게 해준다.
 
+## 수강신청
 
+![image](https://user-images.githubusercontent.com/97486300/208014543-21fb808a-15e1-4dc2-8312-ce52cf2da158.png)
+
+수강 신청을 하게 되면 메인페이지로 돌아가지고
+
+![image](https://user-images.githubusercontent.com/97486300/208014610-7802b9c7-6a2c-4f93-a2eb-43d61d718c37.png)
+
+회원정보조회 페이지에 입력이 된다
+
+## 다음은 강사매출 현황이다
+
+![image](https://user-images.githubusercontent.com/97486300/208014865-d28ee9d4-cd83-4fd2-a745-e1426416aeae.png)
+
+현재는 고급반에 매출이 없다
+고급반에 수강신청을 해보겠다
+
+![image](https://user-images.githubusercontent.com/97486300/208014947-4d318251-a264-414c-8fe6-ad2a11396372.png)
+
+정상적으로 고급반에 강사 매출이 오른걸 확인 할 수 있다
+
+
+
+![image](https://user-images.githubusercontent.com/97486300/208015053-d25b5138-c1b7-460d-8af3-9c8d2a9fea55.png)
+
+## 회원정보페이지에 코드 설명이다
+
+```
+<%
+	StringBuffer sb = new StringBuffer();
+	sb.append("select substr(c.resist_month,1,4)||'년'||substr(c.resist_month,5,2)||'월' resist_month,");
+	sb.append(" c.c_no, m.c_name, t.class_name, c.class_area,");
+	sb.append(" '￦'||to_char(c.tuition, '999,999') tuition, m.grade");
+	sb.append(" from tbl_class_202201 c, tbl_member_202201 m, tbl_teacher_202201 t");
+	sb.append(" where c.c_no = m.c_no and c.teacher_code = t.teacher_code");
+%>
+```
+
+쿼리문에 데이터를 가공해서 
+
+```
+<table>
+			<thead>
+				<tr>
+					<th>수강월</th>
+					<th>회원번호</th>
+					<th>회원명</th>
+					<th>강의명</th>
+					<th>강의장소</th>
+					<th>수강료</th>
+					<th>등급</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+					while(rs.next()) {
+				%>
+				<tr>
+					<td><%= rs.getString(1) %></td>
+					<td><%= rs.getString(2) %></td>
+					<td><%= rs.getString(3) %></td>
+					<td><%= rs.getString(4) %></td>
+					<td><%= rs.getString(5) %></td>
+					<td><%= rs.getString(6) %></td>
+					<td><%= rs.getString(7) %></td>
+				</tr>
+				<%
+					}
+				%>
+			</tbody>
+		</table>
+```
+테이블에 rs.getString 에서 출력 시켜준다
+
+## 강사매출페이지
+
+또한 회원정보페이지와 유사하게 데이터를 가공해서 테이블에서 출력 
